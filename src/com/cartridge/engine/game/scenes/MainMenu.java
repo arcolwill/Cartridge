@@ -15,9 +15,9 @@ import com.cartridge.engine.math.Transform;
  */
 public class MainMenu extends Scene
 {
-    public MainMenu()
+    public MainMenu(String name)
     {
-        super("MainMenu");
+        super(name);
     }
 
     @Override
@@ -32,21 +32,19 @@ public class MainMenu extends Scene
 
         // Create our game objects
         IGameObject logo = new Plane("test image", new Object[]{
-                new Texture("cartridge.png"),
+                new Texture("churchill.jpg"),
                 new Transform(Gdx.graphics.getWidth()/2 - 260, Gdx.graphics.getHeight() /2 - 75, 0.0f, 500.0f, 200.0f, 0.0f)
         });
 
         // Create our game objects
         IGameObject spaceImage = new Plane("press space", new Object[]{
-                new Texture("cartridge_space.png"),
+                new Texture("mario.png"),
                 new Transform(Gdx.graphics.getWidth()/2 - 125.0f, Gdx.graphics.getHeight() /2 - 145.0f, 0.0f, 250.0f, 75.0f, 0.0f)
         });
 
         IGameObject logic = new Plane("logic", new Object[]{
                 new MainMenuBehaviour()
         });
-
-
 
         // Add our game objects to the scene
         super.Pool().add(super.camera);

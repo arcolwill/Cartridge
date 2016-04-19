@@ -2,11 +2,7 @@ package com.cartridge.engine.core;
 
 import com.cartridge.engine.interfaces.IGameObject;
 import com.cartridge.engine.interfaces.IScene;
-import com.google.gson.*;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.LinkedList;
 
 /**
@@ -15,6 +11,7 @@ import java.util.LinkedList;
 public abstract class Scene implements IScene
 {
     private String      levelName = "";
+    private static int  _id = -1;
     private static int  levelId = -1;
     private boolean     loading = true;
     private double      loadProgress = 0.0;
@@ -22,9 +19,10 @@ public abstract class Scene implements IScene
     protected IGameObject camera;
 
     public Scene(String name) {
-        levelName = name;
-        levelId = Scene.levelId++;
-        objectPool = new LinkedList<IGameObject>();
+        Scene._id++;
+        this.levelName = name;
+        this.levelId = Scene._id;
+        this.objectPool = new LinkedList<IGameObject>();
 
         /*
         try {

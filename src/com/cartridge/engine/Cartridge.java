@@ -33,9 +33,9 @@ public class Cartridge extends ApplicationAdapter
 	private void loadcontent()
 	{
 		SceneManager sceneManager = SceneManager.Instance();
-		sceneManager.AddScene(new MainMenu());
-		sceneManager.AddScene(new WorldTest());
-		sceneManager.LoadScene("WorldTest");
+		sceneManager.AddScene(new MainMenu("Main"));
+		sceneManager.AddScene(new WorldTest("World"));
+		sceneManager.LoadScene("Main");
 	}
 
 	@Override

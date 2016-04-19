@@ -17,9 +17,9 @@ import com.cartridge.engine.math.Transform;
  */
 public class WorldTest extends Scene
 {
-    public WorldTest()
+    public WorldTest(String name)
     {
-        super("WorldTest");
+        super(name);
     }
 
     @Override
