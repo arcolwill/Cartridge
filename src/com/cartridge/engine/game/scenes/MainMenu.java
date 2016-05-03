@@ -42,14 +42,10 @@ public class MainMenu extends Scene
                 new Transform(Gdx.graphics.getWidth()/2 - 125.0f, Gdx.graphics.getHeight() /2 - 145.0f, 0.0f, 250.0f, 75.0f, 0.0f)
         });
 
-        IGameObject logic = new Plane("logic", new Object[]{
-                new MainMenuBehaviour()
-        });
-
         // Add our game objects to the scene
         super.Pool().add(super.camera);
-        super.Pool().add(logic);
         super.Pool().add(logo);
         super.Pool().add(spaceImage);
+        super.AddBehaviour(new MainMenuBehaviour());
     }
 }

@@ -9,6 +9,7 @@ import com.cartridge.engine.core.Cube;
 import com.cartridge.engine.core.EditorGrid;
 import com.cartridge.engine.core.Scene;
 import com.cartridge.engine.core.SceneManager;
+import com.cartridge.engine.game.behaviours.WorldTestBehaviour;
 import com.cartridge.engine.interfaces.IGameObject;
 import com.cartridge.engine.math.Transform;
 
@@ -50,5 +51,6 @@ public class WorldTest extends Scene
         super.Pool().add(grid);
         super.Pool().add(box);
         super.Pool().add(box2);
+        super.AddBehaviour(new WorldTestBehaviour());
     }
 }

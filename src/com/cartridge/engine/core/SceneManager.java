@@ -47,5 +47,4 @@ public class SceneManager
         ActiveScene = scene;
         ActiveScene.LoadContent();
     }
-
 }

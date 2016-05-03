@@ -20,7 +20,8 @@ public class MainMenuBehaviour extends CartridgeBehaviour implements ICartridgeB
     @Override
     public void Update()
     {
-        if(Gdx.input.isKeyPressed(Input.Keys.SPACE))
-            SceneManager.Instance().LoadScene("WorldTest");
+        if(Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+            SceneManager.Instance().LoadScene("World");
+        }
     }
 }

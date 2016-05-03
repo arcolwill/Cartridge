@@ -1,5 +1,6 @@
 package com.cartridge.engine.core;
 
+import com.cartridge.engine.interfaces.ICartridgeBehaviour;
 import com.cartridge.engine.interfaces.IGameObject;
 import com.cartridge.engine.interfaces.IScene;
 
@@ -16,6 +17,7 @@ public abstract class Scene implements IScene
     private boolean     loading = true;
     private double      loadProgress = 0.0;
     private LinkedList<IGameObject> objectPool;
+    private LinkedList<ICartridgeBehaviour> behaviourPool;
     protected IGameObject camera;
 
     public Scene(String name) {
@@ -23,6 +25,7 @@ public abstract class Scene implements IScene
         this.levelName = name;
         this.levelId = Scene._id;
         this.objectPool = new LinkedList<IGameObject>();
+        this.behaviourPool = new LinkedList<ICartridgeBehaviour>();
 
         /*
         try {
@@ -60,6 +63,15 @@ public abstract class Scene implements IScene
 
     @Override
     public LinkedList<IGameObject> Pool() { return this.objectPool; }
+
+    @Override
+    public LinkedList<ICartridgeBehaviour> BehaviourPool() { return this.behaviourPool; }
+
+    @Override
+    public void AddBehaviour(ICartridgeBehaviour behaviour)
+    {
+        behaviourPool.add(behaviour);
+    }
 
     @Override
     public void Load(int scene)

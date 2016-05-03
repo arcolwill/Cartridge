@@ -15,6 +15,7 @@ public interface IScene
     double  LoadProgress();
     LinkedList<IGameObject> Pool();
     IGameObject Camera();
-
+    LinkedList<ICartridgeBehaviour> BehaviourPool();
+    void    AddBehaviour(ICartridgeBehaviour behaviour);
     void    LoadContent();
 }

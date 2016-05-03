@@ -10,6 +10,7 @@ import com.cartridge.engine.core.Scene;
 import com.cartridge.engine.core.SceneManager;
 import com.cartridge.engine.game.scenes.MainMenu;
 import com.cartridge.engine.game.scenes.WorldTest;
+import com.cartridge.engine.interfaces.ICartridgeBehaviour;
 import com.cartridge.engine.interfaces.IGameObject;
 
 public class Cartridge extends ApplicationAdapter
@@ -43,6 +44,8 @@ public class Cartridge extends ApplicationAdapter
 		Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 		if(SceneManager.ActiveScene == null) return;
+		for(ICartridgeBehaviour b : SceneManager.ActiveScene.BehaviourPool())
+			if(b != null) b.Update();
 		for (IGameObject g : SceneManager.ActiveScene.Pool())
 			if(g.Active()) g.Update(Gdx.graphics.getDeltaTime());
 	}
